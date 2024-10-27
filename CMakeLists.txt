@@ -29,8 +29,16 @@ if(GTEST_HAS_ABSL)
   endif()
 endif()
 
+set(GOOGLETEST_FOLDER "Third Party/googletest")
+
 if(BUILD_GMOCK)
   add_subdirectory( googlemock )
 else()
   add_subdirectory( googletest )
 endif()
+
+set_target_properties(gmock PROPERTIES FOLDER "${GOOGLETEST_FOLDER}")
+set_target_properties(gmock_main PROPERTIES FOLDER "${GOOGLETEST_FOLDER}")
+set_target_properties(gtest PROPERTIES FOLDER "${GOOGLETEST_FOLDER}")
+set_target_properties(gtest_main PROPERTIES FOLDER "${GOOGLETEST_FOLDER}")
+
